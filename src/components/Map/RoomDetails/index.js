@@ -10,24 +10,19 @@ export default props => (
   <Card>
 
     <Row>
-      <Col span={12}>
-        <TankIconLarge />
-      </Col>
 
       <Col span={12}>
 
-        <h1 onClick={props.onClick}> <Icon type="exclamation-circle" /> 1 underused room</h1>
+        <h1> Meeting room A </h1>
 
       </Col>
     </Row>
 
     <Row>
-      <h2>Building "A"</h2>
 
       <dl className={styles.tankdetailslist}>
         {[
-          { title: 'Total Capacity', name: '100 people' },
-          { title: 'Bought', name: '2017' },
+          { title: 'Total Capacity', name: '50 people' },
         ].map(item => (
           <Fragment>
             {' '}

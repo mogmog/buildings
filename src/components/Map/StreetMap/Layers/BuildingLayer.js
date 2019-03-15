@@ -45,7 +45,7 @@ class Building3DLayer extends MeshLayer {
             },
             pickable: true,
             data : props.data,
-            sizeScale: 3000,
+            sizeScale: 1,
             getColor: d=> [230,230,230, 80],
             getPosition: (d) => [d.longitude, d.latitude],
             getRoll: d => 90,

@@ -32,14 +32,14 @@ class Analysis extends Component {
   };
 
   render() {
-    const {} = this.state;
+    const {clickedOnBuilding} = this.state;
     const { region, tank, loading } = this.props;
 
     return (
       <GridContent>
 
-          <StreetMap/>
-          <MapCard regions={region.list} getTanks={(region_id) => this.getTanks(region_id)} tanks={ tank.list } />
+          <StreetMap onClick={({object}) => { this.setState({clickedOnBuilding : object})}}/>
+        { clickedOnBuilding &&  <MapCard regions={region.list} getTanks={(region_id) => this.getTanks(region_id)} tanks={ tank.list } /> }
 
       </GridContent>
     );

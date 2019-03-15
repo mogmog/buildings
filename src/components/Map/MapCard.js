@@ -6,6 +6,7 @@ import { Motion, spring } from 'react-motion';
 
 import RegionList from './RegionList';
 import TankDetails from './TankDetails';
+import RoomDetails from './RoomDetails';
 import IntervalChoice from './IntervalChoice';
 
 const Blurrer = props => (
@@ -28,6 +29,7 @@ class MapCard extends Component {
   state = {
     selectedRegion: null,
     selectedTank: null,
+    clicked : false
   };
 
   regionSelect = region => {
@@ -62,6 +64,7 @@ class MapCard extends Component {
                   <MapHolder
                     tankSelect={this.tankSelect}
                     flyTo={getFlyTo()}
+                    clicked={this.state.clicked}
                     regions={regions}
                     tanks={tanks}
                   />
@@ -75,15 +78,17 @@ class MapCard extends Component {
               lhs={
                 true && (
                   <Blurrer>
-                    <TankDetails />
+                    <TankDetails onClick={()=> {this.setState({clicked : true})}}/>
                   </Blurrer>
                 )
               }
               rhs={
+                this.state.clicked && <Fragment>
                 <Blurrer>
-
+                   <RoomDetails/>
                 </Blurrer>
-              }
+                </Fragment>}
+
             />
           </div>
         </Card>

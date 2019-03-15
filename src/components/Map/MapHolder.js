@@ -6,6 +6,7 @@ import * as d3 from 'd3';
 import RegionLayer from './Layers/RegionLayer';
 import TankLayer from './Layers/TankLayer';
 import PointLayer from './Layers/PointLayer';
+import PolygonLayer from './Layers/PolygonLayer';
 
 
 const INITIAL_VIEW_STATE = {
@@ -37,7 +38,26 @@ class MapHolder extends Component {
     if (prevProps.flyTo !== this.props.flyTo) {
       this.performFlyTo(this.props.flyTo);
     }
+
+    if (!prevProps.clicked && this.props.clicked) {
+
+      const {viewState} = this.state;
+
+      this.setState({
+        viewState: {
+          ...viewState,
+          zoom: 2.5,
+          transitionDuration: 1000,
+          transitionInterpolator,
+          transitionEasing: d3.easeCubic,
+        }
+      });
+
+
+
+    }
   }
+
 
   _rotateCamera = () => {
     const {viewState} = this.state;
@@ -83,7 +103,7 @@ class MapHolder extends Component {
   }
 
   render() {
-    const { regions, tanks, tankClick } = this.props;
+    const { regions, tanks, tankClick, clicked } = this.props;
 
     return (
       <div>
@@ -107,6 +127,7 @@ class MapHolder extends Component {
 
           {/*<RegionLayer data={regions} />*/}
           <PointLayer data={regions} />
+          <PolygonLayer clicked={clicked}/>
          {/* <TankLayer data={tanks} onClick={tankClick} />*/}
         </DeckGL>
       </div>

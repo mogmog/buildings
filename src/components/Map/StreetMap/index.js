@@ -6,9 +6,9 @@ import * as d3 from 'd3';
 import BuildingLayer from './Layers/BuildingLayer';
 
 const INITIAL_VIEW_STATE = {
-  latitude: -10.72,
-  longitude: 3.1381027358076463,
-  zoom: 1.5,
+  latitude:  51.539,
+  longitude: 0.0,
+  zoom: 12.5,
   minZoom: 1.5,
   pitch: 40,
   bearing: 0
@@ -79,7 +79,7 @@ export default class extends Component {
             mapStyle="mapbox://styles/mogmog/cjsncqrw301w51fqcvlocqjdr"
           />
 
-          <BuildingLayer data={[{longitude : 0, latitude : 51.539}, {longitude : -0.118092, latitude : 51.509}]}/>
+          <BuildingLayer onClick={e=> this.props.onClick(e) } data={[{longitude : 0, latitude : 51.539}, {longitude : -0.118092, latitude : 51.509}]}/>
 
         </DeckGL>
       </div>
