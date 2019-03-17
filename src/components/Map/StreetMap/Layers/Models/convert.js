@@ -3,8 +3,8 @@ import * as OBJ from 'webgl-obj-loader';
 try {
 
   OBJ.downloadMeshes(
-    {'buildingModel': require('./building.obj')},
-    (d) => console.log(d.building)
+    {'buildingModel': require('./Block_5_Office.obj')},
+    (d) => console.log(d)
   );
 
 } catch (e) {

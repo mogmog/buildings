@@ -2,9 +2,15 @@ import { CompositeLayer } from "deck.gl"
 import { Geometry } from 'luma.gl';
 import { MeshLayer } from '@deck.gl/experimental-layers';
 
-import model from './Models/tug'
+import model from './Models/Block'
+
+import * as OBJ from 'webgl-obj-loader';
 
 
+/*OBJ.downloadMeshes(
+  {'buildingModel': require('./Models/Block_5_Office.obj')},
+  (d) => console.log(d)
+);*/
 
 
 
@@ -45,7 +51,7 @@ class Building3DLayer extends MeshLayer {
             },
             pickable: true,
             data : props.data,
-            sizeScale: 1,
+            sizeScale: 10000,
             getColor: d=> [230,230,230, 80],
             getPosition: (d) => [d.longitude, d.latitude],
             getRoll: d => 90,
