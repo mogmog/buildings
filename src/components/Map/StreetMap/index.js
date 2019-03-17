@@ -11,8 +11,9 @@ const INITIAL_VIEW_STATE = {
   longitude: 0.0,
   zoom: 11.5,
   minZoom: 1.5,
-  pitch: 40,
-  bearing: 0
+  pitch: 60,
+  bearing: 0,
+
 };
 
 export default class extends Component {
@@ -69,19 +70,18 @@ export default class extends Component {
     const { items, tanks, tankClick } = this.props;
 
     return (
-      <div onClick={this.onClickHandler}>
+      <div>
         <DeckGL
-          width="100%"
-          height="100%"
           controller={true}
           viewState={this.state.viewState}
           onViewStateChange={({ viewState }) => this.setState({ viewState })}
-          pickingRadius={20}
+          pickingRadius={10}
           ref={deck => {
             this.deckGL = deck;
           }}
         >
           <StaticMap
+
             mapboxApiAccessToken="pk.eyJ1IjoibW9nbW9nIiwiYSI6ImNpZmI2eTZuZTAwNjJ0Y2x4a2g4cDIzZTcifQ.qlITXIamvfVj-NCTtAGylw"
             mapStyle="mapbox://styles/mogmog/cjsncqrw301w51fqcvlocqjdr"
           />

@@ -23,8 +23,6 @@ class Analysis extends Component {
     });
   }
 
-
-
   render() {
     const {clickedOnBuilding} = this.state;
     const { building, tank, loading } = this.props;

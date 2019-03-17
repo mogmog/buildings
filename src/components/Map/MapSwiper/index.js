@@ -15,13 +15,9 @@ class MapSwiper extends Component {
       <Fragment>
         <div className={styles.map}>{this.props.map}</div>
 
-
         <div className={styles.cards}>
-
           {this.props.cards}
-
         </div>
-
 
       </Fragment>
     );
